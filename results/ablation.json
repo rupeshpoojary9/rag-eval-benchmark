@@ -1,0 +1,20 @@
+{
+  "60": {
+    "bm25": 0.65,
+    "dense": 0.7375,
+    "hybrid_rrf": 0.825,
+    "hybrid_rrf+rerank": 0.8875
+  },
+  "120": {
+    "bm25": 0.7,
+    "dense": 0.825,
+    "hybrid_rrf": 0.9,
+    "hybrid_rrf+rerank": 0.9375
+  },
+  "240": {
+    "bm25": 0.85,
+    "dense": 0.8875,
+    "hybrid_rrf": 0.9125,
+    "hybrid_rrf+rerank": 0.9125
+  }
+}

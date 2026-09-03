@@ -1,0 +1,135 @@
+{
+  "config": {
+    "corpus_dir": "/Users/rupeshpoojary/dev/rag-eval-benchmark/corpus",
+    "gold_path": "/Users/rupeshpoojary/dev/rag-eval-benchmark/gold/questions.jsonl",
+    "strategy": "paragraph",
+    "chunk_size": 120,
+    "overlap": 20,
+    "ks": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "include_dense": true,
+    "include_rerank": true,
+    "with_faithfulness": true
+  },
+  "n_docs": 17,
+  "n_chunks": 95,
+  "n_questions": 40,
+  "strategies": [
+    {
+      "name": "bm25",
+      "metrics": {
+        "hit@1": 0.375,
+        "hit@3": 0.65,
+        "hit@5": 0.75,
+        "hit@10": 0.85,
+        "recall@1": 0.375,
+        "recall@3": 0.6375,
+        "recall@5": 0.7375,
+        "recall@10": 0.8375,
+        "mrr@1": 0.375,
+        "mrr@3": 0.5,
+        "mrr@5": 0.525,
+        "mrr@10": 0.5382936507936508,
+        "ndcg@1": 0.375,
+        "ndcg@3": 0.5386859507142915,
+        "ndcg@5": 0.5817536065216308,
+        "ndcg@10": 0.6140436193158637
+      },
+      "by_phrasing": {
+        "synonym": 0.5555555555555556,
+        "paraphrase": 0.75,
+        "verbatim": 1.0
+      },
+      "faithfulness": 1.0,
+      "answer_correctness": 0.41806332556332554
+    },
+    {
+      "name": "dense",
+      "metrics": {
+        "hit@1": 0.55,
+        "hit@3": 0.7,
+        "hit@5": 0.875,
+        "hit@10": 0.925,
+        "recall@1": 0.5375,
+        "recall@3": 0.7,
+        "recall@5": 0.8625,
+        "recall@10": 0.9125,
+        "mrr@1": 0.55,
+        "mrr@3": 0.6208333333333333,
+        "mrr@5": 0.6608333333333334,
+        "mrr@10": 0.6679761904761905,
+        "ndcg@1": 0.55,
+        "ndcg@3": 0.6393592389251369,
+        "ndcg@5": 0.7114408552750668,
+        "ndcg@10": 0.7281075219417334
+      },
+      "by_phrasing": {
+        "synonym": 0.7222222222222222,
+        "paraphrase": 0.8846153846153846,
+        "verbatim": 1.0
+      },
+      "faithfulness": 1.0,
+      "answer_correctness": 0.4420415001665002
+    },
+    {
+      "name": "hybrid_rrf",
+      "metrics": {
+        "hit@1": 0.55,
+        "hit@3": 0.825,
+        "hit@5": 0.95,
+        "hit@10": 0.95,
+        "recall@1": 0.5375,
+        "recall@3": 0.8125,
+        "recall@5": 0.925,
+        "recall@10": 0.925,
+        "mrr@1": 0.55,
+        "mrr@3": 0.6708333333333333,
+        "mrr@5": 0.6983333333333334,
+        "mrr@10": 0.6983333333333334,
+        "ndcg@1": 0.55,
+        "ndcg@3": 0.710412706875005,
+        "ndcg@5": 0.7609604953212653,
+        "ndcg@10": 0.7609604953212653
+      },
+      "by_phrasing": {
+        "synonym": 0.8333333333333334,
+        "paraphrase": 0.9423076923076923,
+        "verbatim": 1.0
+      },
+      "faithfulness": 1.0,
+      "answer_correctness": 0.45692245254745256
+    },
+    {
+      "name": "hybrid_rrf+rerank",
+      "metrics": {
+        "hit@1": 0.6,
+        "hit@3": 0.85,
+        "hit@5": 0.925,
+        "hit@10": 0.925,
+        "recall@1": 0.6,
+        "recall@3": 0.8375,
+        "recall@5": 0.9125,
+        "recall@10": 0.9125,
+        "mrr@1": 0.6,
+        "mrr@3": 0.7125,
+        "mrr@5": 0.73,
+        "mrr@10": 0.73,
+        "ndcg@1": 0.6,
+        "ndcg@3": 0.7494751231261504,
+        "ndcg@5": 0.7806802712106836,
+        "ndcg@10": 0.7806802712106836
+      },
+      "by_phrasing": {
+        "synonym": 0.8333333333333334,
+        "paraphrase": 0.9230769230769231,
+        "verbatim": 1.0
+      },
+      "faithfulness": 1.0,
+      "answer_correctness": 0.45067245254745253
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[project]
+name = "rag-eval-benchmark"
+version = "0.1.0"
+description = "A reproducible RAG retrieval benchmark: compares BM25, dense, hybrid (RRF), and hybrid+rerank over one hand-labelled corpus, and reports recall@k, MRR, nDCG, plus generation-side faithfulness. Runs on local models with no API key; swaps to an Anthropic judge with one env var."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Rupesh Poojary" }]
+keywords = [
+    "rag",
+    "retrieval",
+    "evaluation",
+    "benchmark",
+    "bm25",
+    "dense-retrieval",
+    "hybrid-search",
+    "reranking",
+    "recall",
+    "mrr",
+    "faithfulness",
+]
+dependencies = [
+    "numpy>=1.24",
+    "rank-bm25>=0.2.2",
+]
+
+[project.optional-dependencies]
+# The metrics + BM25 path run with only numpy + rank-bm25.
+# These enable the dense / rerank / plotting / judge paths.
+dense = ["sentence-transformers>=2.2", "torch>=2.0"]
+plots = ["matplotlib>=3.7"]
+judge = ["anthropic>=0.40"]   # optional real LLM-judge for faithfulness
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+rag-eval = "rag_eval.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_eval"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
