@@ -1,5 +1,8 @@
 # RAG Eval Benchmark
 
+[![tests](https://github.com/rupeshpoojary9/rag-eval-benchmark/actions/workflows/tests.yml/badge.svg)](https://github.com/rupeshpoojary9/rag-eval-benchmark/actions/workflows/tests.yml) ![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+
+
 A small, **reproducible** benchmark that compares retrieval strategies over one
 hand-labelled corpus and reports real retrieval and answer-quality metrics. It exists
 to answer a question most RAG write-ups hand-wave: *does hybrid + reranking actually
