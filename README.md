@@ -24,6 +24,19 @@ Everything runs on **local models with no API key** — `sentence-transformers` 
 retrieval and reranking, a deterministic claim-overlap judge for faithfulness. A real
 Anthropic LLM-judge and grounded generator swap in with one environment variable.
 
+## Headline results
+
+Corpus: 17 docs, 95 chunks. Gold: 40 hand-labelled, span-level questions. Deterministic, so re-running reproduces the table. Full analysis in [RESULTS.md](RESULTS.md).
+
+| strategy | recall@1 | recall@5 | MRR@10 | nDCG@10 |
+|---|---|---|---|---|
+| bm25 | 0.375 | 0.738 | 0.538 | 0.614 |
+| dense | 0.537 | 0.863 | 0.668 | 0.728 |
+| hybrid (RRF) | 0.537 | **0.925** | 0.698 | 0.761 |
+| hybrid + rerank | **0.600** | 0.912 | **0.730** | **0.781** |
+
+**Hybrid retrieval lifts recall@5 from 0.738 (BM25) to 0.925, a +25% relative gain.** Adding a cross-encoder reranker sharpens the top of the ranking (MRR 0.698 → 0.730, recall@1 0.537 → 0.600). The gain comes almost entirely from vocabulary mismatch: BM25 scores a perfect 1.000 on verbatim questions but collapses to 0.556 on synonym-phrased ones, exactly where semantic retrieval earns its keep.
+
 ## Why the numbers are trustworthy
 
 Two design choices do the heavy lifting, and they're the parts worth defending in an
